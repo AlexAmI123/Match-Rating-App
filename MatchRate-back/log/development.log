@@ -2737,3 +2737,66 @@ Processing by Api::V1::MatchesController#index as JSON
 Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 8111)
 
 
+Started GET "/api/v1/matches.json" for ::1 at 2023-02-20 12:55:06 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MatchesController#index as JSON
+  [1m[36mMatch Load (0.1ms)[0m  [1m[34mSELECT "matches".* FROM "matches"[0m
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/models/match.rb:11:in `avg_score'
+  [1m[36mReview Average (0.1ms)[0m  [1m[34mSELECT AVG("reviews"."score") FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/models/match.rb:12:in `avg_score'
+  [1m[36mReview Pluck (0.0ms)[0m  [1m[34mSELECT "reviews"."id" FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/models/match.rb:11:in `avg_score'
+  [1m[36mReview Average (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."score") FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/models/match.rb:12:in `avg_score'
+  [1m[36mReview Pluck (0.0ms)[0m  [1m[34mSELECT "reviews"."id" FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/models/match.rb:11:in `avg_score'
+  [1m[36mReview Average (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."score") FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/models/match.rb:12:in `avg_score'
+  [1m[36mReview Pluck (0.0ms)[0m  [1m[34mSELECT "reviews"."id" FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 68546)
+
+
+Started GET "/api/v1/matches.json" for ::1 at 2023-02-20 12:55:06 +0000
+Processing by Api::V1::MatchesController#index as JSON
+  [1m[36mMatch Load (0.1ms)[0m  [1m[34mSELECT "matches".* FROM "matches"[0m
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/models/match.rb:11:in `avg_score'
+  [1m[36mReview Average (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."score") FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/models/match.rb:12:in `avg_score'
+  [1m[36mReview Pluck (0.0ms)[0m  [1m[34mSELECT "reviews"."id" FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 1]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/models/match.rb:11:in `avg_score'
+  [1m[36mReview Average (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."score") FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/models/match.rb:12:in `avg_score'
+  [1m[36mReview Pluck (0.0ms)[0m  [1m[34mSELECT "reviews"."id" FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 2]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/models/match.rb:11:in `avg_score'
+  [1m[36mReview Average (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."score") FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/models/match.rb:12:in `avg_score'
+  [1m[36mReview Pluck (0.0ms)[0m  [1m[34mSELECT "reviews"."id" FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."match_id" = ?[0m  [["match_id", 3]]
+  ↳ app/controllers/api/v1/matches_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 0.0ms | ActiveRecord: 0.6ms | Allocations: 8111)
+
+
