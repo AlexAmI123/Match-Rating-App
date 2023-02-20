@@ -48,7 +48,7 @@ class Api::V1::MatchesController < ApplicationController
 
   private
   def match_params
-    params.require(:match).permit(:name, :image_url1, :image_url2)
+    params.require(:match).permit(:name, :c1alpha2, :c2alpha2)
   end
 
   def options

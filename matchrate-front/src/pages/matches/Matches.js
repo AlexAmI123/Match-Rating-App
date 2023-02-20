@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment} from "react"
 import axios from 'axios'
 import Match from "./Match"
 import styled from "styled-components"
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const Home = styled.div`
     text-align: center;

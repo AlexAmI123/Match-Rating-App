@@ -13,8 +13,8 @@
 ActiveRecord::Schema[7.0].define(version: 2023_02_15_152401) do
   create_table "matches", force: :cascade do |t|
     t.string "name"
-    t.string "image_url1"
-    t.string "image_url2"
+    t.string "c1alpha2"
+    t.string "c2alpha2"
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
