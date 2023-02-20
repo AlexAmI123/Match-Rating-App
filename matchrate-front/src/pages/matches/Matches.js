@@ -37,13 +37,9 @@ const Matches = () => {
     const API_URL = "http://localhost:3000/api/v1/matches.json"
 
     useEffect(() =>{
-        //getter from API
-        //updater from API 
         axios
         .get(API_URL)
-        .then(resp => {
-            setMatches(resp.data.data)
-        })
+        .then(resp => setMatches(resp.data.data))
         .catch(resp => console.log(resp))
     }, [matches.length])
 
