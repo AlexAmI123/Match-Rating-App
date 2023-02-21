@@ -1,9 +1,7 @@
-#module Api
-#  module V1
 class Api::V1::MatchesController < ApplicationController
-#class MatchesController < ApplicationController
+  #protect_from_forgery with: :null_session
 
-  before_action :set_post, only: %i[ show update destroy ]
+  #before_action :set_post, only: %i[ show update destroy ]
   def index
     matches = Match.all
 
@@ -13,7 +11,7 @@ class Api::V1::MatchesController < ApplicationController
   def show
     match = Match.find_by(slug: params[:slug])
 
-    render json: MatchSerializer.new(match, options).serialized_json
+    render json: MatchSerializer.new(match,options).serialized_json
   end
 
   def create

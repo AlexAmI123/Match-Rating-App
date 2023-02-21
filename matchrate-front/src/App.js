@@ -8,14 +8,6 @@ function App() {
     return (
       <>
         <Container>
-          {/* <Navbar expand="lg" variant="light" bg="light">
-            <Container>
-              <Link className="nav-link" to="/">Matches</Link>
-              <Link className="nav-link" to="/Match">Match</Link>
-            </Container>
-            </Navbar><br /> 
-          */}
-        
           <Routes>
             <Route path="/" element={<Matches />} />
             <Route path="/Matches/:slug" element={<Match />} />
