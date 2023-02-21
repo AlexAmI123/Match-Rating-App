@@ -1,5 +1,23 @@
 import React from "react"
 import styled from "styled-components"
+import Match from "./Match"
+
+const Wrapper = styled.div`
+    padding: 50px 100px 50px 0;
+    font-size: 30px;
+    text-align: center;
+`
+
+const TotalReviews = styled.div`
+    font-size: 18px;
+    padding: 10px 0;
+`
+
+const TotalOutOf = styled.div`
+font-size: 18px;
+font-weight: bold;
+padding: 10px 0;
+`
 
 const Flag = styled.div`
 .fi.fis{
@@ -12,17 +30,17 @@ const Flag = styled.div`
 
     const Header = (props) => {
         const {name, c1alpha2, c2alpha2, avg_score} = props.attributes
+        //console.log(props)
         const total = props.reviews.length
         
         return(
-            <div className="wrapper">
-                <h1>
-                    <Flag><div class={`fi fi-${props.attributes.c1alpha2} fis`}></div> <div class={`fi fi-${props.attributes.c2alpha2} fis`}></div></Flag>Match Name
-                </h1>
-                <div className="TotalReviews">{total} user reviews.</div>
+            <Wrapper>
+                <Flag><div class={`fi fi-${props.attributes.c1alpha2} fis`}></div> <div class={`fi fi-${props.attributes.c2alpha2} fis`}></div></Flag>
+                <h1>{name}</h1>
+                <TotalReviews>{total} user reviews.</TotalReviews>
                 <div className="StarRating"></div>
-                <div className="TotalOutOf">{avg_score} out of 5</div>
-            </div>
+                <TotalOutOf>{avg_score} out of 5</TotalOutOf>
+            </Wrapper>
         )
     }
 

@@ -34,7 +34,7 @@ const Grid = styled.div`
 const Matches = () => {
     const[matches, setMatches] = useState([])
 
-    const API_URL = "http://localhost:3000/api/v1/matches.json"
+    const API_URL = "http://localhost:3000/api/v1/matches"
 
     useEffect(() =>{
         axios

@@ -36,6 +36,7 @@ const LinkWrapper = styled.div`
 `
 
 const Match = (props) => {
+    //console.log(props)
     return(
         <Card>
             <Flag> 
