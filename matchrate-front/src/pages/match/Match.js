@@ -1,6 +1,7 @@
-import React, {useState,useEffect} from "react"
+import React, {useState,useEffect, Fragment} from "react"
 import axios from "axios"
 import Header from "./Header"
+import ReviewForm from "./ReviewForm"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
@@ -44,29 +45,40 @@ const Match = (/*props*/) => {
         //console.log(match)
     },[])
 
+    const handleChange = () => {
+        e.preventDefault()
+    }
+
+    const handleSubmit = () => {
+        e.preventDefault()
+    }
+
     return (
     <Wrapper>
-        <Column>
-            <Main>
-                {loaded && 
-                    <Header
-                        attributes = {match.data.attributes}
-                        reviews = {match.included}
-                    />
-                }
-                <div className="reviews">
+        {loaded && <Fragment>
+            <Column>
+                <Main>
                     
-                </div>
-            </Main>
-        </Column>
-        <Column>
-            <div className="header">
-                
-            </div>
-            <div className="review-form">
-                [Review form goes here.]
-            </div>
-        </Column>
+                        <Header
+                            attributes = {match.data.attributes}
+                            reviews = {match.included}
+                        />
+                    
+                    <div className="reviews">
+                        
+                    </div>
+                </Main>
+            </Column>
+            <Column>
+                <ReviewForm
+                    handleChange = {handleChange}
+                    handleSubmit = {handleSubmit}
+                    attributes = {match.data.attributes}
+                    review={review}
+                />
+            </Column>
+        </Fragment>
+        }
     </Wrapper>
     )
 }
