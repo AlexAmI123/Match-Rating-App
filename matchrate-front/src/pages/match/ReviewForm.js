@@ -110,13 +110,16 @@ const ReviewForm = (props) => {
 
     return(
     <Wrapper>
+        <link rel="stylesheet" href=
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+        </link>
         <form onSubmit={props.handleSubmit}>
             <Headline>Have an opinion of the match: {props.attributes.name}? Share it!</Headline>
             <Field>
                 <input onChange={props.handleChange} value = {props.review.title} type="text" name="title" placeholder="Review Title"/>
             </Field>
             <Field>
-                <input onChange={props.handleChange} value = {props.review.description} type="text" name="description" placeholder="Review Title"/>
+                <input onChange={props.handleChange} value = {props.review.description} type="text" name="description" placeholder="Review Description"/>
             </Field>
             <Field>
                 <RatingContainer>

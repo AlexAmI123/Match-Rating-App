@@ -2,6 +2,7 @@ import React, {useState,useEffect, Fragment} from "react"
 import axios from "axios"
 import Header from "./Header"
 import ReviewForm from "./ReviewForm"
+import Review from "./Review"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
@@ -59,6 +60,7 @@ const Match = (/*props*/) => {
         axios.post("http://localhost:3000/api/v1/reviews", {review, match_id})
         .then(resp => {
             const included = [...match.included, resp.data.data]
+            //console.log(included)
             setMatch({...match, included})
             setReview({title: "", description: "", score: 0})
         })
@@ -72,20 +74,28 @@ const Match = (/*props*/) => {
         setReview({...review, score})
     }
 
+    let reviews
+    if(loaded && match.included) {
+        reviews = match.included.map( (item, index) => {
+            //console.log("mapping",item)
+            return(
+                <Review key = {index}
+                attributes = {item.attributes}
+                />
+            )
+        })
+    }
+
     return (
     <Wrapper>
         {loaded && <Fragment>
             <Column>
                 <Main>
-                    
-                        <Header
-                            attributes = {match.data.attributes}
-                            reviews = {match.included}
-                        />
-                    
-                    <div className="reviews">
-                        
-                    </div>
+                    <Header
+                        attributes = {match.data.attributes}
+                        reviews = {match.included}
+                    />
+                    {reviews}
                 </Main>
             </Column>
             <Column>
