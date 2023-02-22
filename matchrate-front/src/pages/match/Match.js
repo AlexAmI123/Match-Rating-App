@@ -36,21 +36,40 @@ const Match = (/*props*/) => {
         axios
         .get(MATCH_URL)
         .then(resp => {
-            //console.log(resp)
             setMatch(resp.data)
-            //console.log(match)
             setLoaded(true)
         } )
         .catch( resp => console.log(resp) )
-        //console.log(match)
     },[])
 
-    const handleChange = () => {
+    const handleChange = (e) => {
         e.preventDefault()
+        setReview(Object.assign({}, review, {[e.target.name]: e.target.value} ))
+        console.log("review:", review)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault()
+
+        //const csrfToken = document.querySelector('[name=csrf-token]').content
+        //axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+        const match_id = match.data.id
+
+        axios.post("http://localhost:3000/api/v1/reviews", {review, match_id})
+        .then(resp => {
+            const included = [...match.included, resp.data.data]
+            setMatch({...match, included})
+            setReview({title: "", description: "", score: 0})
+        })
+        .catch(resp => {
+        })
+    }
+
+    const setRating = (score, e) => {
+        e.preventDefault()
+        
+        setReview({...review, score})
     }
 
     return (
@@ -71,9 +90,10 @@ const Match = (/*props*/) => {
             </Column>
             <Column>
                 <ReviewForm
-                    handleChange = {handleChange}
-                    handleSubmit = {handleSubmit}
-                    attributes = {match.data.attributes}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    setRating={setRating}
+                    attributes={match.data.attributes}
                     review={review}
                 />
             </Column>

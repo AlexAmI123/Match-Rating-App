@@ -2,12 +2,13 @@ class Api::V1::ReviewsController < ApplicationController
     #protect_from_forgery with: :null_session
 
     def create
-        review = review.new(review_params)
+        review = match.reviews.new(review_params)
 
         if review.save
             render json: ReviewSerializer.new(review).serialized_json
         else
             render json: {error: review.errors.messages  }, status: 422
+        end
     end
 
     def destroy
@@ -17,10 +18,15 @@ class Api::V1::ReviewsController < ApplicationController
             head :no_content
         else
             render json: {error: review.errors.messages  }, status: 422
+        end
     end
 
     private
     
+    def match
+        @match ||=Match.find(params[:match_id])
+    end
+
     def review_params
         params.require(:review).permit(:title, :description, :score, :match_id)
 
