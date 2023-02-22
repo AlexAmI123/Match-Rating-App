@@ -1,7 +1,4 @@
 class Api::V1::MatchesController < ApplicationController
-  #protect_from_forgery with: :null_session
-
-  #before_action :set_post, only: %i[ show update destroy ]
   def index
     matches = Match.all
 

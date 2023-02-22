@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Link} from "react-router-dom";
 import styled from "styled-components";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import Rating from "../rating/Rating";
 
 const Card = styled.div`
     border: 1px solid #efefef;
@@ -36,14 +37,14 @@ const LinkWrapper = styled.div`
 `
 
 const Match = (props) => {
-    //console.log(props)
     return(
         <Card>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
             <Flag> 
                 <div class={`fi fi-${props.attributes.c1alpha2} fis`}></div> <div class={`fi fi-${props.attributes.c2alpha2} fis`}></div>
             </Flag>
             <MatchName>{props.attributes.name}</MatchName>
-            <div className="Match-score">{props.attributes.avg_score}</div>
+            <Rating score={props.attributes.avg_score}/>
             <LinkWrapper>
                 <Link to={`/matches/${props.attributes.slug}`}> View Match</Link>
             </LinkWrapper>

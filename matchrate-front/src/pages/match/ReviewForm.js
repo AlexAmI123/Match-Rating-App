@@ -110,9 +110,7 @@ const ReviewForm = (props) => {
 
     return(
     <Wrapper>
-        <link rel="stylesheet" href=
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
-        </link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
         <form onSubmit={props.handleSubmit}>
             <Headline>Have an opinion of the match: {props.attributes.name}? Share it!</Headline>
             <Field>

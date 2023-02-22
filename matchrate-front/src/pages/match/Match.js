@@ -24,7 +24,7 @@ const Main = styled.div`
     padding-left: 50px;
 `
 
-const Match = (/*props*/) => {
+const Match = () => {
     const [match, setMatch] = useState({})
     const [review, setReview] = useState({})
     const [loaded, setLoaded] = useState(false)
@@ -32,8 +32,6 @@ const Match = (/*props*/) => {
     const MATCH_URL = `http://localhost:3000/api/v1${window.location.pathname.toString()}`
 
     useEffect(()=>{
-        //console.log(props)
-
         axios
         .get(MATCH_URL)
         .then(resp => {
@@ -60,7 +58,6 @@ const Match = (/*props*/) => {
         axios.post("http://localhost:3000/api/v1/reviews", {review, match_id})
         .then(resp => {
             const included = [...match.included, resp.data.data]
-            //console.log(included)
             setMatch({...match, included})
             setReview({title: "", description: "", score: 0})
         })
@@ -77,7 +74,6 @@ const Match = (/*props*/) => {
     let reviews
     if(loaded && match.included) {
         reviews = match.included.map( (item, index) => {
-            //console.log("mapping",item)
             return(
                 <Review key = {index}
                 attributes = {item.attributes}
