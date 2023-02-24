@@ -24,7 +24,7 @@ const Subheader = styled.div`
 
 //For some reason display:grid; here doesn't work!!!!
 const Grid = styled.div`
-    diplay: grid;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     width: 100%;
@@ -61,9 +61,7 @@ const Matches = () => {
             <h1>MatchRate</h1>
             <Subheader>Real people's opinions on Matches</Subheader>
         </Header>
-        <Grid> 
-            {grid}
-        </Grid>
+        <Grid>{grid}</Grid>
     </Home>
     )
 }
