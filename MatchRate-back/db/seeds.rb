@@ -30,7 +30,7 @@ matches = Match.create([
     {
         name: "Croatia VS Morocco 2022 WC",
         c1alpha2: "ar",
-        c2alpha2: "fr"
+        c2alpha2: "ma"
     }
 ])
 
