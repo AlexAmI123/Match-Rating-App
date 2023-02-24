@@ -18,7 +18,7 @@ matches = Match.create([
         c2alpha2: "fr"
     },
     {
-        name: "Croatia VS Brazil 2022",
+        name: "Croatia VS Brazil 2022 WC",
         c1alpha2: "hr",
         c2alpha2: "br"
     },
