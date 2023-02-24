@@ -30,7 +30,6 @@ const Flag = styled.div`
 
     const Header = (props) => {
         const {name, c1alpha2, c2alpha2, avg_score} = props.attributes
-        //console.log(props)
         const total = props.reviews.length
         
         return(

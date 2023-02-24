@@ -50,9 +50,6 @@ const Match = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        //const csrfToken = document.querySelector('[name=csrf-token]').content
-        //axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
-
         const match_id = match.data.id
 
         axios.post("http://localhost:3000/api/v1/reviews", {review, match_id})

@@ -21,6 +21,8 @@ const Subheader = styled.div`
     font-weight: 300;
     font-size: 42px;
 `
+
+//For some reason display:grid; here doesn't work!!!!
 const Grid = styled.div`
     diplay: grid;
     grid-template-columns: repeat(4, 1fr);

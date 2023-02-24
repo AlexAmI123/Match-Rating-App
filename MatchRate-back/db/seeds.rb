@@ -16,6 +16,21 @@ matches = Match.create([
         name: "Argentina VS France 2022 WC FINAL",
         c1alpha2: "ar",
         c2alpha2: "fr"
+    },
+    {
+        name: "Croatia VS Brazil 2022",
+        c1alpha2: "hr",
+        c2alpha2: "br"
+    },
+    {
+        name: "England VS France 2022 WC",
+        c1alpha2: "gb",
+        c2alpha2: "fr"
+    },
+    {
+        name: "Croatia VS Morocco 2022 WC",
+        c1alpha2: "ar",
+        c2alpha2: "fr"
     }
 ])
 
