@@ -54,3 +54,11 @@ reviews = Review.create([
         match: matches.third
     }
 ])
+
+users = User.create([
+    {
+        username: "Admin",
+        email: "alex.majka@zendesk.com",
+        password_digest: "Admin"
+    }
+])

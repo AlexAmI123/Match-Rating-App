@@ -8,6 +8,7 @@ const Card = styled.div`
     border: 1px solid #efefef;
     background: white;
     text-align: center;
+    border-radius: 15px;
 `
 const Flag = styled.div`
     .fi.fis{
