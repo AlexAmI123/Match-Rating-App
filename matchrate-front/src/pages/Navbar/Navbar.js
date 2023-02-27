@@ -32,11 +32,10 @@ const Left = styled.div`
 `
 
 const Right = styled.div`
-  flex-basis: 20%;
+  flex-basis: 30%;
   align-self: flex-end !important;
   margin-right: 24px;
 
-  //justify-content: space-between;
   a {
     color: black;
     text-decoration: none;
@@ -54,7 +53,6 @@ const Menu = styled.ul`
 `
 
 const Logo = styled.span`
-  font-family: 'Poppins-ExtraBold';
   font-weight: bold;
   font-size: 20px;
   a {
@@ -91,6 +89,7 @@ const Navbar = (props) => {
                     
                     <Fragment>
                         <li><Link to="/">Home</Link></li>
+                        <li><Link to="/matches">Add Match!</Link></li>
                         <li><a onClick={logout}>Log Out</a></li>
                     </Fragment> 
 
