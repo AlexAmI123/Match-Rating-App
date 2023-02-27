@@ -69,7 +69,7 @@ const Logo = styled.span`
 const Navbar = (props) => {
 
     const isLoggedIn = () => {
-
+        
     }
     const logout = (e) => {
         e.preventDefault()

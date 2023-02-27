@@ -1,8 +1,8 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
     # def index
     # end
 
-    #protect_from_forgery with: :exception
+    protect_from_forgery with: :null_session
 
     private
 
@@ -11,5 +11,5 @@ class ApplicationController < ActionController::API
             current_user ||= User.find(session[:user_id])
         end
     end
-    #helper_method :current_user
+    helper_method :current_user
 end
