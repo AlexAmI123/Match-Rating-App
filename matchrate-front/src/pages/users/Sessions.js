@@ -68,7 +68,12 @@ const Sessions = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        axios.get("http://localhost:3000/api/v1/sessions", {user})
+        const username = user.username
+        const password = user.password
+        const email = user.email
+
+
+        axios.post("http://localhost:3000/api/v1/sessions", {username,password,email})
         .then(resp => {console.log(resp)})
 
         //window.location.href = "/"
