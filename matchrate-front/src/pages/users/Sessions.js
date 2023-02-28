@@ -68,9 +68,10 @@ const Sessions = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        axios.post("http://localhost:3000/api/v1/sessions", {user})
+        axios.get("http://localhost:3000/api/v1/sessions", {user})
+        .then(resp => {console.log(resp)})
 
-        window.location.href = "/"
+        //window.location.href = "/"
     }
 
 
