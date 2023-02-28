@@ -69,7 +69,7 @@ const NewForm = (props) => {
 
         axios.post("http://localhost:3000/api/v1/users", {user})
         .then(resp => {console.log(resp)})
-        
+
         window.location.href = "/Login"
     }
 
@@ -85,7 +85,7 @@ const NewForm = (props) => {
                     <input onChange={handleChange} value = {user.email} type="text" name="email" placeholder="Please type your Email"/>
                 </Field>
                 <Field>
-                    <input onChange={handleChange} value = {user.password_digest} type="password" name="password" placeholder="Please type your Password"/>
+                    <input onChange={handleChange} value = {user.password} type="password" name="password" placeholder="Please type your Password"/>
                 </Field>
                 <SubmitButton type="submit">Sign Up</SubmitButton>
             </form>

@@ -86,7 +86,7 @@ const Sessions = (props) => {
                     <input onChange={handleChange} value = {user.email} type="text" name="email" placeholder="Please type your Email"/>
                 </Field>
                 <Field>
-                    <input onChange={handleChange} value = {user.password_digest} type="password" name="password" placeholder="Please type your Password"/>
+                    <input onChange={handleChange} value = {user.password} type="password" name="password" placeholder="Please type your Password"/>
                 </Field>
                 <SubmitButton type="submit">Log In</SubmitButton>
             </form>
