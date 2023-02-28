@@ -57,8 +57,8 @@ reviews = Review.create([
 
 users = User.create([
     {
-        username: "Admin",
+        username: "AdminUsername",
         email: "alex.majka@zendesk.com",
-        password_digest: "Admin"
+        password_digest: "AdminPassword"
     }
 ])
