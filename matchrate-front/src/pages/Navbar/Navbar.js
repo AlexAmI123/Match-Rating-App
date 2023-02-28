@@ -89,7 +89,7 @@ const Navbar = (props) => {
                     
                     <Fragment>
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/matches">Add Match!</Link></li>
+                        <li><Link to="/AddMatch">Add Match!</Link></li>
                         <li><a onClick={logout}>Log Out</a></li>
                     </Fragment> 
 
