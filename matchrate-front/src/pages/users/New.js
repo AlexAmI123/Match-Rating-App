@@ -67,13 +67,31 @@ const NewForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        axios.post("http://localhost:3000/api/v1/users", {user})
-        .then(resp => {console.log(resp)})
-
-        //window.location.href = "/Login"
+        axios.post("http://localhost:3000/api/v1/users", {user}, {withCredentials:true})
+        .then(resp => {
+            if (resp.data.status === 'created') {
+                this.props.handleLogin(resp.data)
+                this.redirect()
+            } else {
+                this.setState({
+                  errors: resp.data.errors
+                })
+            }
+        })
     }
 
+    const redirect = () => {window.location.href = "/Login"}
 
+    const handleErrors = () => {
+        return (
+          <div>
+            <ul>
+                {this.state.errors.map(error => {return <li key={error}>{error}</li>})}
+            </ul> 
+          </div>
+        )
+    };
+    
     return(
         <Wrapper>
             <form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import React, {useState,useEffect,Fragment} from "react";
 import axios from "axios"
+import { Component } from 'react';
 import styled from "styled-components";
 import { redirect } from "react-router-dom";
 
@@ -61,20 +62,41 @@ const Sessions = (props) => {
 
     const handleChange = (e) => {
         e.preventDefault()
-        setUser({ ...user, [e.target.name]: e.target.value})
+        setUser(Object.assign({}, user, {[e.target.name]: e.target.value} ))
         console.log("user:", user)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        axios.post("http://localhost:3000/api/v1/sessions", {user})
-        .then(resp => {console.log(resp)})
+        axios.post("http://localhost:3000/api/v1/login", {user}, {withCredentials:true})
+        .then(resp => {
+            if(resp.data.logged_in){
+                this.props.handleLogin(resp.data)
+                this.redirect()
+            } 
+            else {
+                this.setState({
+                    errors: resp.data.errors
+                })
+            }
+        })
+        .catch(error => console.log("api errors: ", error))
 
         //window.location.href = "/"
     }
+    const redirect = () => {window.location.href = "/"}
 
-
+    const handleErrors = () => {
+        return (
+            <div>
+              <ul>
+              {this.state.errors.map(error => {return <li key={error}>{error}</li>})}
+              </ul>
+            </div>
+        )
+    }
+    
     return(
         <Wrapper>
             <form onSubmit={handleSubmit}>
