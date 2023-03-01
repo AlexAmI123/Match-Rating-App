@@ -72,9 +72,9 @@ const Navbar = (props) => {
     const logout = (e) => {
         e.preventDefault()
 
-        axios.destroy(`http://localhost:3000/api/v1/sessions/:IDHERE`)
+        axios.post(`http://localhost:3000/api/v1/Logout`)
 
-        // window.location.href = "/Login"
+        window.location.href = "/Login"
     }
 
     return (

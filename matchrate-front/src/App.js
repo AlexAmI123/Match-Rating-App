@@ -6,8 +6,8 @@ import Match from './pages/match/Match';
 import Matches from './pages/matches/Matches';
 import MatchesAdd from './pages/matches/MatchesAdd';
 import Navbar from './pages/Navbar/Navbar';
-import Sessions from './pages/users/Sessions';
-import New from './pages/users/New';
+import Login from './pages/users/Login';
+import Signup from './pages/users/SignUp';
 
 
 
@@ -61,8 +61,8 @@ render() {
             <Route path="/" element={<Matches />} />
             <Route path="/Matches/:slug" element={<Match />} />
             <Route path="/AddMatch" element={<MatchesAdd />} />
-            <Route path="/Login" element={<Sessions />} />
-            <Route path="/SignUp" element={<New />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/SignUp" element={<Signup />} />
           </Routes>
         </Container>
       </>
