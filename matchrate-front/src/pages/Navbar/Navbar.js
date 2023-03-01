@@ -1,6 +1,7 @@
 import React, {useState,useEffect,Fragment} from "react";
 import styled from "styled-components";
 import {Route, Link} from "react-router-dom"
+import { Component } from "react";
 import axios from "axios"
 
 const Wrapper = styled.nav`
@@ -32,7 +33,7 @@ const Left = styled.div`
 `
 
 const Right = styled.div`
-  flex-basis: 30%;
+  flex-basis: 10%;
   align-self: flex-end !important;
   margin-right: 24px;
 
@@ -64,11 +65,9 @@ const Logo = styled.span`
   }
 `
 
-const Navbar = (props) => {
+//class Navbar extends Component{
+  const Navbar = (props) => {
 
-    const isLoggedIn = () => {
-        
-    }
     const logout = (e) => {
         e.preventDefault()
 
@@ -76,32 +75,33 @@ const Navbar = (props) => {
 
         window.location.href = "/Login"
     }
-
-    return (
-        <Wrapper>
-          <Container>
-            <Nav>
-              <Left>
-                <Logo><Link to="/">MatchRate</Link></Logo>
-              </Left>
-              <Right>
-                <Menu>
-                    
-                    <Fragment>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/AddMatch">Add Match!</Link></li>
-                        <li><a onClick={logout}>Log Out</a></li>
-                    </Fragment> 
-
-                    <Fragment>
-                        <li><Link to="/Login">Login</Link></li>
-                        <li><Link to="/Signup">Signup</Link></li>
-                    </Fragment>
-                </Menu>
-              </Right>
-            </Nav>  
-          </Container>
-        </Wrapper>
+    return(
+      <Wrapper>
+        <Container>
+          <Nav>
+            <Left>
+              <Logo><Link to="/">MatchRate</Link></Logo>
+            </Left>
+            <Right>
+              <Menu>
+                  {
+                  props.isLoggedIn?
+                  <Fragment>
+                      <li><Link to="/">Home</Link></li>
+                      <li><Link to="/AddMatch">Add Match!</Link></li>
+                      <li><a onClick={logout}>Log Out</a></li>
+                  </Fragment> 
+                  :
+                  <Fragment>
+                      <li><Link to="/Login">Login</Link></li>
+                      <li><Link to="/Signup">Signup</Link></li>
+                  </Fragment>
+                  }
+              </Menu>
+            </Right>
+          </Nav>  
+        </Container>
+      </Wrapper>
     )
 }
 export default Navbar

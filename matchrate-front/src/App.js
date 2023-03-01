@@ -70,21 +70,3 @@ render() {
   }
 };
 export default App;
-
-// function App() {
-//     return (
-//       <>
-//         <Container>
-//           <Navbar/>
-//           <Routes>
-//             <Route path="/" element={<Matches />} />
-//             <Route path="/Matches/:slug" element={<Match />} />
-//             <Route path="/AddMatch" element={<MatchesAdd />} />
-//             <Route path="/Login" element={<Sessions />} />
-//             <Route path="/SignUp" element={<New />} />
-//           </Routes>
-//         </Container>
-//       </>
-//     );
-//   }
-// export default App;

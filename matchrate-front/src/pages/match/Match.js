@@ -1,9 +1,12 @@
 import React, {useState,useEffect, Fragment} from "react"
+import {Route, Link} from "react-router-dom"
+import styled from "styled-components"
 import axios from "axios"
 import Header from "./Header"
 import ReviewForm from "./ReviewForm"
 import Review from "./Review"
-import styled from "styled-components"
+import LoginPrompt from "./LoginPrompt"
+
 
 const Wrapper = styled.div`
     margin-left: auto;
@@ -24,7 +27,7 @@ const Main = styled.div`
     padding-left: 50px;
 `
 
-const Match = () => {
+const Match = (props) => {
     const [match, setMatch] = useState({})
     const [review, setReview] = useState({})
     const [loaded, setLoaded] = useState(false)
@@ -47,11 +50,11 @@ const Match = () => {
         console.log("review:", review)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e,props) => {
         e.preventDefault()
 
         const match_id = match.data.id
-
+    
         axios.post("http://localhost:3000/api/v1/reviews", {review, match_id})
         .then(resp => {
             const included = [...match.included, resp.data.data]
@@ -91,6 +94,8 @@ const Match = () => {
                     {reviews}
                 </Main>
             </Column>
+            {
+            props.isLoggedIn?
             <Column>
                 <ReviewForm
                     handleChange={handleChange}
@@ -100,6 +105,11 @@ const Match = () => {
                     review={review}
                 />
             </Column>
+            :
+            <Column>
+                <LoginPrompt/>
+            </Column>
+            }
         </Fragment>
         }
     </Wrapper>
