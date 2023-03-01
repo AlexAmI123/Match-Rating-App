@@ -79,9 +79,6 @@ const NewForm = (props) => {
             <form onSubmit={handleSubmit}>
                 <Headline>Sign Up!</Headline>
                 <Field>
-                    <input onChange={handleChange} value = {user.username} type="text" name="username" placeholder="Please type your Username"/>
-                </Field>
-                <Field>
                     <input onChange={handleChange} value = {user.email} type="text" name="email" placeholder="Please type your Email"/>
                 </Field>
                 <Field>

@@ -57,26 +57,21 @@ const Headline = styled.div`
 `
 
 const Sessions = (props) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({email: "",username: "", password: ""})
 
     const handleChange = (e) => {
         e.preventDefault()
-        setUser(Object.assign({}, user, {[e.target.name]: e.target.value} ))
+        setUser({ ...user, [e.target.name]: e.target.value})
         console.log("user:", user)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const username = user.username
-        const password = user.password
-        const email = user.email
-
-
-        axios.post("http://localhost:3000/api/v1/sessions", {username,password,email})
+        axios.post("http://localhost:3000/api/v1/sessions", {user})
         .then(resp => {console.log(resp)})
 
-        //window.location.href = "/"
+        window.location.href = "/"
     }
 
 
@@ -84,9 +79,6 @@ const Sessions = (props) => {
         <Wrapper>
             <form onSubmit={handleSubmit}>
                 <Headline>Log In!</Headline>
-                <Field>
-                    <input onChange={handleChange} value = {user.username} type="text" name="username" placeholder="Please type your Username"/>
-                </Field>
                 <Field>
                     <input onChange={handleChange} value = {user.email} type="text" name="email" placeholder="Please type your Email"/>
                 </Field>
