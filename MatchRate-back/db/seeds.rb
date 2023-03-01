@@ -55,9 +55,9 @@ reviews = Review.create([
     }
 ])
 
-users = User.create([
-    {
-        email: "alex.majka@zendesk.com",
-        password_digest: "AdminPassword"
-    }
-])
+# users = User.create([
+#     {
+#         email: "alex.majka@zendesk.com",
+#         password_digest: "AdminPassword"
+#     }
+# ])

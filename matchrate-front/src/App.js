@@ -7,7 +7,7 @@ import Sessions from './pages/users/Sessions';
 import New from './pages/users/New';
 import { Container} from 'react-bootstrap';
 
-  
+
 function App() {
     return (
       <>

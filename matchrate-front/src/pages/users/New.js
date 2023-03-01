@@ -70,7 +70,7 @@ const NewForm = (props) => {
         axios.post("http://localhost:3000/api/v1/users", {user})
         .then(resp => {console.log(resp)})
 
-        window.location.href = "/Login"
+        //window.location.href = "/Login"
     }
 
 

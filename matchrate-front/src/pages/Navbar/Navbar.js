@@ -74,7 +74,7 @@ const Navbar = (props) => {
 
         axios.destroy(`http://localhost:3000/api/v1/sessions/:IDHERE`)
 
-        // window.location.href = "/"
+        // window.location.href = "/Login"
     }
 
     return (
