@@ -65,7 +65,6 @@ const Logo = styled.span`
   }
 `
 
-//class Navbar extends Component{
   const Navbar = (props) => {
 
     const logout = (e) => {
