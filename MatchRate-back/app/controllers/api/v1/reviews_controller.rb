@@ -1,7 +1,4 @@
 class Api::V1::ReviewsController < ApplicationController
-    
-    # befpre_action :authenticate_user!
-
     def create
         review = match.reviews.new(review_params)
 

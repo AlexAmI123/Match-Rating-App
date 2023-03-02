@@ -1,7 +1,4 @@
 class Api::V1::MatchesController < ApplicationController
-  
-  # befpre_action :authenticate_user!
-
   def index
     matches = Match.all
 
