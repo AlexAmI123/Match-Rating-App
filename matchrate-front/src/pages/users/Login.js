@@ -72,7 +72,7 @@ const Sessions = (props) => {
         axios.post("http://localhost:3000/api/v1/login", {user}, {withCredentials:true})
         .then(resp => {
             if(resp.data.logged_in){
-                this.props.handleLogin(resp.data)
+                this.handleLogin(resp.data)
                 this.redirect()
             } 
             else {

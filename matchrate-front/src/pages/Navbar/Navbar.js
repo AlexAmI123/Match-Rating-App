@@ -70,7 +70,7 @@ const Logo = styled.span`
     const logout = (e) => {
         e.preventDefault()
 
-        axios.post(`http://localhost:3000/api/v1/Logout`)
+        axios.post(`http://localhost:3000/api/v1/logout`)
 
         window.location.href = "/Login"
     }
