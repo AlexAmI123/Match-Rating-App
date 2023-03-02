@@ -1,4 +1,5 @@
 import React, {Fragment} from "react";
+import {Link} from "react-router-dom"
 import styled from "styled-components";
 
 
@@ -40,7 +41,7 @@ const LoginPrompt = () => {
     <Wrapper>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
         <Headline>You need to Log In to write reviews:</Headline>
-        <LoginButton>Log In Here!</LoginButton>
+        <LoginButton><Link to="/Login">Log In Here!</Link></LoginButton>
     </Wrapper>
     )
 }

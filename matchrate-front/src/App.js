@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   loginStatus = () => {
-    axios.get('http://localhost:3001/logged_in', {withCredentials: true})    
+    axios.get('http://localhost:3000/logged_in', {withCredentials: true})    
       .then(response => {
       if (response.data.logged_in) {
         this.handleLogin(response)
