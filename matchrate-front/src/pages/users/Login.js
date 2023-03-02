@@ -1,6 +1,5 @@
-import React, {useState,useEffect,Fragment} from "react";
+import React, {useState,useEffect,Fragment,} from "react";
 import axios from "axios"
-import { Component } from 'react';
 import styled from "styled-components";
 import { redirect } from "react-router-dom";
 
@@ -57,7 +56,8 @@ const Headline = styled.div`
     color:white;
 `
 
-const Sessions = (props) => {
+
+const Sessions = (props, handleLogin,App) => {
     const [user, setUser] = useState({email: "", password: ""})
 
     const handleChange = (e) => {
@@ -84,6 +84,13 @@ const Sessions = (props) => {
         .catch(error => console.log("api errors: ", error))
     }
     const redirect = () => {window.location.href = "/"}
+
+    handleLogin = (data) => {
+        this.setState({
+          isLoggedIn: true,
+          user: data.user
+        })
+    }
 
     const handleErrors = () => {
         return (

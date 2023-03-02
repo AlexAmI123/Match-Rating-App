@@ -68,12 +68,34 @@ const Logo = styled.span`
   const Navbar = (props) => {
 
     const logout = (e) => {
-        e.preventDefault()
+    e.preventDefault()
 
-        axios.post(`http://localhost:3000/api/v1/logout`)
+    axios.post(`http://localhost:3000/api/v1/logout`)
+    .then(resp => {
+    if(resp.data.logged_out){
+      debugger
+      this.handleLogOut(resp.data)
+      this.redirect()
+    } 
+    else {
+          debugger
+          this.setState({
+              errors: resp.data.errors
+          })
+      }
+    })
+    .catch(error => console.log("api errors: ", error))
+  }
 
-        window.location.href = "/Login"
-    }
+  const handleLogin = (data) => {
+    this.setState({
+      isLoggedIn: true,
+      user: data.user
+    })
+  }
+
+  const redirect = () => {window.location.href = "/"}
+
     return(
       <Wrapper>
         <Container>

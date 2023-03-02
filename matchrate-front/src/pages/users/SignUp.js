@@ -70,7 +70,7 @@ const NewForm = (props) => {
         axios.post("http://localhost:3000/api/v1/users", {user}, {withCredentials:true})
         .then(resp => {
             if (resp.data.status === 'created') {
-                this.props.handleLogin(resp.data)
+                this.handleLogin(resp.data)
                 this.redirect()
             } else {
                 this.setState({
