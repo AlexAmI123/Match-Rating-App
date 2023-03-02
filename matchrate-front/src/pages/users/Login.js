@@ -57,7 +57,7 @@ const Headline = styled.div`
 `
 
 
-const Sessions = (props, handleLogin,App) => {
+const Sessions = (props) => {
     const [user, setUser] = useState({email: "", password: ""})
 
     const handleChange = (e) => {
@@ -72,8 +72,9 @@ const Sessions = (props, handleLogin,App) => {
         axios.post("http://localhost:3000/api/v1/login", {user}, {withCredentials:true})
         .then(resp => {
             if(resp.data.logged_in){
-                this.handleLogin(resp.data)
-                this.redirect()
+                //handleLogin(resp.data)
+                //this.handleLogin(resp.data)
+                //redirect()
             } 
             else {
                 this.setState({
@@ -85,12 +86,6 @@ const Sessions = (props, handleLogin,App) => {
     }
     const redirect = () => {window.location.href = "/"}
 
-    handleLogin = (data) => {
-        this.setState({
-          isLoggedIn: true,
-          user: data.user
-        })
-    }
 
     const handleErrors = () => {
         return (

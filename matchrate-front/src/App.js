@@ -56,13 +56,13 @@ render() {
     return (
       <>
         <Container>
-          <Navbar/>
+          <Navbar handleLogin = {this.props.handleLogin} handleLogout = {this.props.handleLogout}/>
           <Routes>
             <Route path="/" element={<Matches />} />
-            <Route path="/Matches/:slug" element={<Match />} />
+            <Route path="/Matches/:slug" element={<Match />} handleLogin = {this.props.handleLogin} handleLogout = {this.props.handleLogout}/>
             <Route path="/AddMatch" element={<MatchesAdd />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/SignUp" element={<Signup />} />
+            <Route path="/Login" element={<Login />} handleLogin = {this.props.handleLogin} handleLogout = {this.props.handleLogout}/>
+            <Route path="/SignUp" element={<Signup />} handleLogin = {this.props.handleLogin} handleLogout = {this.props.handleLogout}/>
           </Routes>
         </Container>
       </>
