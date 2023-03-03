@@ -21,22 +21,6 @@ class App extends Component {
      };
   };
 
-  componentDidMount() {
-    this.loginStatus()
-  }
-
-  loginStatus = () => {
-    axios.get('http://localhost:3000/api/v1/logged_in', {withCredentials: true})    
-      .then(response => {
-      if (response.data.logged_in) {
-        this.handleLogin(response)
-      } else {
-        this.handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
-  };
-
   handleLogin = (data) => {
     this.setState({
       isLoggedIn: true,
@@ -55,28 +39,16 @@ render() {
     return (
       <>
         <Container>
-          <Navbar handleLogout = {this.handleLogout} loginStatus = {this.loginStatus}/>
+          <Navbar isLoggedIn = {this.state.isLoggedIn} handleLogout = {this.handleLogout} loginStatus = {this.state.isLoggedIn}/>
           <Routes>
             <Route path="/" element={<Matches />} />
-            <Route path="/Matches/:slug" element={<Match handleLogin = {this.handleLogin}/>}/>
+            <Route path="/Matches/:slug" element={<Match handleLogin = {this.handleLogin} isLoggedIn = {this.state.isLoggedIn}/>}/>
             <Route path="/AddMatch" element={<MatchesAdd />} />
             <Route path="/Login" element={<Login handleLogin = {this.handleLogin}/>}/>
             <Route path="/SignUp" element={<Signup handleLogin = {this.handleLogin}/>}/>
           </Routes>
         </Container>
       </>
-      // <>
-      //   <Container>
-      //     <Navbar/>
-      //     <Routes>
-      //       <Route path="/" element={<Matches />} />
-      //       <Route path="/Matches/:slug" element={<Match />}/>
-      //       <Route path="/AddMatch" element={<MatchesAdd />} />
-      //       <Route path="/Login" element={<Login />}/>
-      //       <Route path="/SignUp" element={<Signup />}/>
-      //     </Routes>
-      //   </Container>
-      // </>
     );
   }
 };

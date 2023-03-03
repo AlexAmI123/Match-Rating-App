@@ -61,7 +61,7 @@ const NewForm = (props) => {
     const handleChange = (e) => {
         e.preventDefault()
         setUser(Object.assign({}, user, {[e.target.name]: e.target.value} ))
-        console.log("user:", user)
+        //console.log("user:", user)
     }
 
     const handleSubmit = (e) => {
@@ -69,17 +69,16 @@ const NewForm = (props) => {
 
         axios.post("http://localhost:3000/api/v1/users", {user}, {withCredentials:true})
         .then(resp => {
-            if (resp.data.status === 'created') {
-                console.log(resp.data)
+            if (resp.data) {
                 props.handleLogin(resp.data)
                 redirect()
             } else {
-                console.log(resp.data)
+                console.log(resp)
             }
         })
     }
 
-    const redirect = () => {window.location.href = "/Login"}
+    const redirect = () => {window.location.href = "/"}
 
     const handleErrors = () => {
         return (

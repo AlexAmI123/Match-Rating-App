@@ -1,8 +1,6 @@
 import React, {useState,useEffect,Fragment,} from "react";
 import axios from "axios"
 import styled from "styled-components";
-import { handleLogin } from "../utils/handleSessions";
-//import { redirect } from "react-router-dom";
 
 const Field = styled.div`
     border-radius: 4px;
@@ -76,7 +74,7 @@ const Sessions = (props) => {
                 console.log(resp.data)
 
                 props.handleLogin(resp.data)
-                //redirect()
+                redirect()
             } 
             else {
                 console.log(resp.data)

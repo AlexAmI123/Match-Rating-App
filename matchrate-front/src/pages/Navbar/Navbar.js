@@ -1,4 +1,4 @@
-import React, {useState,useEffect,Fragment} from "react";
+import React, {Fragment} from "react";
 import styled from "styled-components";
 import {Route, Link} from "react-router-dom"
 import axios from "axios"
@@ -64,8 +64,7 @@ const Logo = styled.span`
   }
 `
 
-  const Navbar = (props) => {
-    //props.loginStatus()
+const Navbar = (props) => {
 
     const logout = (e) => {
     e.preventDefault()
@@ -75,7 +74,6 @@ const Logo = styled.span`
       if(resp.data.logged_out){
         console.log(resp.data)
         props.handleLogout(resp.data)
-        redirect()
       } 
       else {
         console.log(resp.data)
@@ -84,35 +82,34 @@ const Logo = styled.span`
     .catch(error => console.log("api errors: ", error))
   }
 
-  const redirect = () => {window.location.href = "/"}
-
-    return(
-      <Wrapper>
-        <Container>
-          <Nav>
-            <Left>
-              <Logo><Link to="/">MatchRate</Link></Logo>
-            </Left>
-            <Right>
-              <Menu>
-                  {
-                  props.isLoggedIn?
-                  <Fragment>
-                      <li><Link to="/">Home</Link></li>
-                      <li><Link to="/AddMatch">Add Match!</Link></li>
-                      <li><a onClick={logout}>Log Out</a></li>
-                  </Fragment> 
-                  :
-                  <Fragment>
-                      <li><Link to="/Login">Login</Link></li>
-                      <li><Link to="/Signup">Signup</Link></li>
-                  </Fragment>
-                  }
-              </Menu>
-            </Right>
-          </Nav>  
-        </Container>
-      </Wrapper>
-    )
+  return(
+    <Wrapper>
+      <Container>
+        <Nav>
+          <Left>
+            <Logo><Link to="/">MatchRate</Link></Logo>
+          </Left>
+          <Right>
+            <Menu>
+                {
+                props.isLoggedIn?
+                <Fragment>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/AddMatch">Add Match!</Link></li>
+                    <li><a onClick={logout}>Log Out</a></li>
+                </Fragment> 
+                :
+                <Fragment>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/Login">Login</Link></li>
+                    <li><Link to="/Signup">Signup</Link></li>
+                </Fragment>
+                }
+            </Menu>
+          </Right>
+        </Nav>  
+      </Container>
+    </Wrapper>
+  )
 }
 export default Navbar
