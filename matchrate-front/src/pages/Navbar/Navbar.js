@@ -72,14 +72,12 @@ const Logo = styled.span`
 
     axios.post(`http://localhost:3000/api/v1/logout`)
     .then(resp => {
-    if(resp.data.logged_out){
-      this.handleLogout(resp.data)
-      this.redirect()
-    } 
-    else {
-          this.setState({
-              errors: resp.data.errors
-          })
+      if(resp.data.logged_out){
+        this.handleLogout(resp.data)
+        redirect()
+      } 
+      else {
+        console.log(resp.data)
       }
     })
     .catch(error => console.log("api errors: ", error))

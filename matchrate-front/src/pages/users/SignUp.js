@@ -71,11 +71,9 @@ const NewForm = (props) => {
         .then(resp => {
             if (resp.data.status === 'created') {
                 this.handleLogin(resp.data)
-                //this.redirect()
+                //redirect()
             } else {
-                this.setState({
-                  errors: resp.data.errors
-                })
+                console.log(resp.data)
             }
         })
     }

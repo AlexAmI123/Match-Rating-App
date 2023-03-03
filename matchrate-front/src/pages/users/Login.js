@@ -77,9 +77,7 @@ const Sessions = (props) => {
                 //redirect()
             } 
             else {
-                this.setState({
-                    errors: resp.data.errors
-                })
+                console.log(resp.data)
             }
         })
         .catch(error => console.log("api errors: ", error))
