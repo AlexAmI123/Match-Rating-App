@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Match from "./Match"
 
 const Wrapper = styled.div`
     padding: 50px 100px 50px 0;

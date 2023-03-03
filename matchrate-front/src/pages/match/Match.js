@@ -1,5 +1,4 @@
 import React, {useState,useEffect, Fragment} from "react"
-import {Route, Link} from "react-router-dom"
 import styled from "styled-components"
 import axios from "axios"
 import Header from "./Header"

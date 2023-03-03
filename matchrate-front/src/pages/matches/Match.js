@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import styled from "styled-components";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Rating from "../rating/Rating";

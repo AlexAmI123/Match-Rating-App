@@ -1,7 +1,6 @@
-import { Routes, Route, Link, Switch} from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom'
 import { Container} from 'react-bootstrap';
 import { Component } from 'react';
-import axios from 'axios';
 import Match from './pages/match/Match';
 import Matches from './pages/matches/Matches';
 import MatchesAdd from './pages/matches/MatchesAdd';
