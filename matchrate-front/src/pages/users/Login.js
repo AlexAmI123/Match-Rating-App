@@ -2,7 +2,7 @@ import React, {useState,useEffect,Fragment,} from "react";
 import axios from "axios"
 import styled from "styled-components";
 import { handleLogin } from "../utils/handleSessions";
-import { redirect } from "react-router-dom";
+//import { redirect } from "react-router-dom";
 
 const Field = styled.div`
     border-radius: 4px;
@@ -73,9 +73,9 @@ const Sessions = (props) => {
         axios.post("http://localhost:3000/api/v1/login", {user}, {withCredentials:true})
         .then(resp => {
             if(resp.data.logged_in){
-                //console.log(props)
-                handleLogin(resp.data)
-                //this.handleLogin(resp.data)
+                console.log(resp.data)
+
+                props.handleLogin(resp.data)
                 //redirect()
             } 
             else {

@@ -1,7 +1,6 @@
 import React, {useState,useEffect,Fragment} from "react";
 import styled from "styled-components";
 import {Route, Link} from "react-router-dom"
-import { Component } from "react";
 import axios from "axios"
 
 const Wrapper = styled.nav`
@@ -33,7 +32,7 @@ const Left = styled.div`
 `
 
 const Right = styled.div`
-  flex-basis: 10%;
+  flex-basis: 20%;
   align-self: flex-end !important;
   margin-right: 24px;
 
@@ -66,6 +65,7 @@ const Logo = styled.span`
 `
 
   const Navbar = (props) => {
+    //props.loginStatus()
 
     const logout = (e) => {
     e.preventDefault()
@@ -73,7 +73,8 @@ const Logo = styled.span`
     axios.post(`http://localhost:3000/api/v1/logout`)
     .then(resp => {
       if(resp.data.logged_out){
-        this.handleLogout(resp.data)
+        console.log(resp.data)
+        props.handleLogout(resp.data)
         redirect()
       } 
       else {
