@@ -82,8 +82,8 @@ const Sessions = (props) => {
         })
         .catch(error => console.log("api errors: ", error))
     }
-    const redirect = () => {window.location.href = "/"}
 
+    const redirect = () => {window.location.href = "/"}
 
     const handleErrors = () => {
         return (

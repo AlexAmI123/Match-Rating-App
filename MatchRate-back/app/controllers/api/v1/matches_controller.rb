@@ -1,4 +1,7 @@
 class Api::V1::MatchesController < ApplicationController
+  
+  # before_action :authenticate_user! except: [:show]
+
   def index
     matches = Match.all
 

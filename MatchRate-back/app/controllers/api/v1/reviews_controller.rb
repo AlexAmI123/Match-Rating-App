@@ -1,4 +1,7 @@
 class Api::V1::ReviewsController < ApplicationController
+    
+    # before_action :authenticate_user! except: [:show]
+
     def create
         review = match.reviews.new(review_params)
 

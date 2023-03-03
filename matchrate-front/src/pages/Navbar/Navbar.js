@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import styled from "styled-components";
-import {Link} from "react-router-dom"
+import {Route, Link} from "react-router-dom"
 import axios from "axios"
 
 const Wrapper = styled.nav`
