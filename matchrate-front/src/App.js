@@ -38,13 +38,13 @@ render() {
     return (
       <>
         <Container>
-          <Navbar isLoggedIn = {this.state.isLoggedIn} handleLogout = {this.handleLogout} loginStatus = {this.state.isLoggedIn}/>
+          <Navbar isLoggedIn = {this.state.isLoggedIn} handleLogout = {this.handleLogout}/>
           <Routes>
             <Route path="/" element={<Matches />} />
             <Route path="/Matches/:slug" element={<Match handleLogin = {this.handleLogin} isLoggedIn = {this.state.isLoggedIn}/>}/>
             <Route path="/AddMatch" element={<MatchesAdd />} />
-            <Route path="/Login" element={<Login handleLogin = {this.handleLogin}/>}/>
-            <Route path="/SignUp" element={<Signup handleLogin = {this.handleLogin}/>}/>
+            <Route path="/Login" element={<Login handleLogin = {this.handleLogin} isLoggedIn = {this.state.isLoggedIn}/>}/>
+            <Route path="/SignUp" element={<Signup handleLogin = {this.handleLogin} isLoggedIn = {this.state.isLoggedIn}/>}/>
           </Routes>
         </Container>
       </>

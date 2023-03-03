@@ -69,6 +69,8 @@ const NewForm = (props) => {
 
         axios.post("http://localhost:3000/api/v1/matches", {match})
 
+
+        // LOGS YOU OUT FOR SOME REASON.
         window.location.href = "/"
     }
 

@@ -1,4 +1,5 @@
 import React, {useState,useEffect,Fragment,} from "react";
+import { Link } from "react-router-dom";
 import axios from "axios"
 import styled from "styled-components";
 
@@ -74,7 +75,9 @@ const Sessions = (props) => {
                 console.log(resp.data)
 
                 props.handleLogin(resp.data)
-                redirect()
+
+                //LOGS YOU OUT FOR SOME REASON
+                //redirect()
             } 
             else {
                 console.log(resp.data)
@@ -97,6 +100,13 @@ const Sessions = (props) => {
     
     return(
         <Wrapper>
+            {
+            props.isLoggedIn?
+            <Wrapper>
+                <Headline>You are logged in!</Headline>
+                <SubmitButton><Link to="/">Home Page!</Link></SubmitButton>
+            </Wrapper>
+            :
             <form onSubmit={handleSubmit}>
                 <Headline>Log In!</Headline>
                 <Field>
@@ -107,6 +117,7 @@ const Sessions = (props) => {
                 </Field>
                 <SubmitButton type="submit">Log In</SubmitButton>
             </form>
+            }
         </Wrapper>
         )
     }

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import axios from "axios"
 import styled from "styled-components";
 
@@ -73,7 +74,9 @@ const NewForm = (props) => {
                 console.log(resp.data)
 
                 props.handleLogin(resp.data)
-                redirect()
+
+                //LOGS YOU OUT FOR SOME REASON
+                //redirect()
             } else {
                 console.log(resp)
             }
@@ -94,6 +97,13 @@ const NewForm = (props) => {
     
     return(
         <Wrapper>
+            {
+            props.isLoggedIn?
+            <Wrapper>
+                <Headline>You are logged in!</Headline>
+                <SubmitButton><Link to="/">Home Page!</Link></SubmitButton>
+            </Wrapper>
+            :
             <form onSubmit={handleSubmit}>
                 <Headline>Sign Up!</Headline>
                 <Field>
@@ -104,6 +114,7 @@ const NewForm = (props) => {
                 </Field>
                 <SubmitButton type="submit">Sign Up</SubmitButton>
             </form>
+            }
         </Wrapper>
         )
     }
